@@ -9,11 +9,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    const val MainServer = "http://medrx.indieconsortium.net/api/"
-        //"https://medrxadminpanel.azurewebsites.net/api/" //"http://medrx.indieconsortium.net/api/"
+    const val MainServer = "https://age-of-empires-2-api.herokuapp.com/api/"
 
 
-    const val ImageMainServer = "";
+
 
     val retrofitClient: Retrofit.Builder by lazy {
 

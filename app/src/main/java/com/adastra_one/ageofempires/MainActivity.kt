@@ -3,15 +3,17 @@ package com.adastra_one.ageofempires
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.adastra_one.ageofempires.adapters.CivilizationAdapter
 import com.adastra_one.ageofempires.databinding.ActivityMainBinding
+import com.adastra_one.ageofempires.interfaces.ItemClickListener
 import com.adastra_one.ageofempires.model.Civilization
 import com.adastra_one.ageofempires.viewmodel.CivilizationViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var civilizationViewModel: CivilizationViewModel
         val itemsList =  ArrayList<Civilization>()
@@ -43,5 +45,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContentView(binding.root)
+    }
+
+    override fun itemClick() {
+        Toast.makeText(this, "Item Clicked", Toast.LENGTH_LONG).show()
     }
 }

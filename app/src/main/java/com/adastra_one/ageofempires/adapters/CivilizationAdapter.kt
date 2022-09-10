@@ -37,7 +37,7 @@ class CivilizationAdapter(
         val item = itemsList[position]
 
 
-        //holder.cardView.setOnClickListener { cont.orderClick(holder.topView, "${item.id}")   /*onClickListener.onClick(holder.topView)*/ }
+        holder.cardView.setOnClickListener { cont.itemClick()   /*onClickListener.onClick(holder.topView)*/ }
         holder.name.text = item.name
         holder.expansion.text = item.expansion
         holder.armyType.text = item.army_type

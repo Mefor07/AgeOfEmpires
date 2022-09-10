@@ -19,13 +19,13 @@ class CivilizationAdapter(
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = CivilizationListRowBinding.bind(view)
 
-        /*
-        var orderTitle = binding.orderTitle
-        var orderDate = binding.orderDate
-        var orderCode = binding.orderCode
-        var topView = binding.topView
+        var cardView = binding.cardView
+        var name = binding.name
+        var expansion = binding.expansion
+        var armyType = binding.armyType
+        var teamBonus = binding.teamBonus
 
-         */
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -36,12 +36,13 @@ class CivilizationAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = itemsList[position]
 
-        /*
-        holder.topView.setOnClickListener { cont.orderClick(holder.topView, "${item.id}")   /*onClickListener.onClick(holder.topView)*/ }
-        holder.orderCode.text = item.status
-        holder.orderTitle.text = "Order #${item.id}"
-        holder.orderDate.text = item.created_at
-        */
+
+        //holder.cardView.setOnClickListener { cont.orderClick(holder.topView, "${item.id}")   /*onClickListener.onClick(holder.topView)*/ }
+        holder.name.text = item.name
+        holder.expansion.text = item.expansion
+        holder.armyType.text = item.army_type
+        holder.teamBonus.text = item.team_bonus
+
     }
 
     override fun getItemCount(): Int {

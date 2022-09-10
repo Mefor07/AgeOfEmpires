@@ -2,6 +2,7 @@ package app.medrx.MedrxApp.retrofit
 
 
 import com.adastra_one.ageofempires.model.Civilization
+import com.adastra_one.ageofempires.model.Civilizations
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -47,8 +48,8 @@ interface ApiInterface {
     @Headers(
         "Accept: application/json",
     )
-    @GET("orders")
-    fun orders(@Header("Authorization") token: String?):Call<Civilization>
+    @GET("v1/civilizations")
+    fun civilizations():Call<Civilizations>
 
 
     /*

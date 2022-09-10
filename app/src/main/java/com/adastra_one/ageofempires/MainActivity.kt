@@ -23,16 +23,16 @@ class MainActivity : AppCompatActivity() {
         cvRecyclerView = binding.cvRecyclerView
         civilizationViewModel = ViewModelProvider(this).get(CivilizationViewModel::class.java)
 
-        civilizationViewModel.getCivilizations()!!.observe(this, { civilizations ->
+        civilizationViewModel.getCivilizations()!!.observe(this) { civilizations ->
 
             Log.d("RESP", civilizations.toString())
 
             itemsList.clear()
 
-            for (item in civilizations.civilizations){
-              itemsList.add(item)
+            for (item in civilizations.civilizations) {
+                itemsList.add(item)
 
-                val layoutManager = LinearLayoutManager(MainActivity@this)
+                val layoutManager = LinearLayoutManager(MainActivity@ this)
                 cvRecyclerView.layoutManager = layoutManager
                 civilizationAdapter = CivilizationAdapter(itemsList, this)
                 cvRecyclerView.adapter = civilizationAdapter
@@ -40,22 +40,7 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-            /*
-            val success = orders.success
-            if (success) {
-                itemsList.clear()
-                for (item in orders.orders) {
-                    itemsList.add(item.order)
-                }
-                val layoutManager = LinearLayoutManager(context)
-                recyclerView.layoutManager = layoutManager
-                ordersAdapter = OrdersAdapter(itemsList, this)
-                recyclerView.adapter = ordersAdapter
-                ordersAdapter.notifyDataSetChanged()
-            }
-            */
-
-        })
+        }
 
         setContentView(binding.root)
     }

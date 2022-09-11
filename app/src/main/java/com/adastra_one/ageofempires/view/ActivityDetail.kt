@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.adastra_one.ageofempires.adapters.CivilizationAdapter
+import com.adastra_one.ageofempires.databinding.ActivityDetailBinding
 import com.adastra_one.ageofempires.databinding.ActivityMainBinding
 import com.adastra_one.ageofempires.interfaces.ItemClickListener
 import com.adastra_one.ageofempires.interfaces.UniqueTechClickListener
@@ -16,24 +17,23 @@ import com.adastra_one.ageofempires.interfaces.UniqueUniteClickListener
 import com.adastra_one.ageofempires.model.Civilization
 import com.adastra_one.ageofempires.viewmodel.CivilizationViewModel
 
-class MainActivity : AppCompatActivity(), ItemClickListener, UniqueUniteClickListener, UniqueTechClickListener {
+class ActivityDetail : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        lateinit var civilizationViewModel: CivilizationViewModel
-        val itemsList =  ArrayList<Civilization>()
-        lateinit var cvRecyclerView: RecyclerView
+
+        val itemsList =  ArrayList<String>()
+        lateinit var cvBonusRecyclerView: RecyclerView
         lateinit var civilizationAdapter: CivilizationAdapter
         super.onCreate(savedInstanceState)
 
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        cvRecyclerView = binding.cvRecyclerView
-        civilizationViewModel = ViewModelProvider(this).get(CivilizationViewModel::class.java)
+        val binding = ActivityDetailBinding.inflate(layoutInflater)
 
-        civilizationViewModel.getCivilizations()!!.observe(this) { civilizations ->
-
-            Log.d("RESP", civilizations.toString())
+        binding.name.text = intent.getStringExtra("NAME_EXTRA");
+        binding.expansion.text = intent.getStringExtra("EXPANSION_EXTRA")
+        binding.armyType.text = intent.getStringExtra("ARMY_TYPE_EXTRA")
+        binding.teamBonus.text = intent.getStringExtra("TEAM_BONUS_EXTRA")
 
             itemsList.clear()
-
+            /*
             for (item in civilizations.civilizations) {
                 itemsList.add(item)
 
@@ -42,32 +42,26 @@ class MainActivity : AppCompatActivity(), ItemClickListener, UniqueUniteClickLis
                 civilizationAdapter = CivilizationAdapter(itemsList, this)
                 cvRecyclerView.adapter = civilizationAdapter
                 civilizationAdapter.notifyDataSetChanged()
+
             }
+            */
 
 
-        }
+        //actionbar
+        val actionbar = supportActionBar
+
+        actionbar!!.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+
 
         setContentView(binding.root)
     }
 
-    override fun itemClick(name: String, expansion: String, armyType: String, teamBonus: String) {
-        Toast.makeText(this, "Item Clicked", Toast.LENGTH_LONG).show()
-        val intent = Intent(this, ActivityDetail::class.java)
-        intent.putExtra("NAME_EXTRA", name)
-        intent.putExtra("EXPANSION_EXTRA", expansion)
-        intent.putExtra("ARMY_TYPE_EXTRA", armyType)
-        intent.putExtra("TEAM_BONUS_EXTRA", teamBonus)
-        startActivity(intent)
-    }
 
-    override fun buttonOneClick() {
-        Toast.makeText(this, "Unique Unite Button Click", Toast.LENGTH_LONG).show()
-        val intent = Intent(this, ActivityDetailUnit::class.java)
-        startActivity(intent)
-    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
 
-    override fun buttonTwoClick() {
-        Toast.makeText(this, "Unique Tech Button Click", Toast.LENGTH_LONG).show()
+        return  true
     }
 
 

@@ -8,11 +8,12 @@ import com.adastra_one.ageofempires.view.MainActivity
 import com.adastra_one.ageofempires.R
 import com.adastra_one.ageofempires.databinding.CivilizationListRowBinding
 import com.adastra_one.ageofempires.model.Civilization
+import com.adastra_one.ageofempires.view.ActivityDetail
 
-class CivilizationAdapter(
-    var itemsList:List<Civilization>,
-    context: MainActivity
-): RecyclerView.Adapter<CivilizationAdapter.MyViewHolder>()
+class CivilizationBonusAdapter(
+    var itemsList:List<String>,
+    context: ActivityDetail
+): RecyclerView.Adapter<CivilizationBonusAdapter.MyViewHolder>()
 {
     var cont = context
     //var onClickListener = onClickListener
@@ -39,7 +40,8 @@ class CivilizationAdapter(
         val item = itemsList[position]
 
 
-        holder.cardView.setOnClickListener { cont.itemClick(item.name, item.expansion, item.army_type, item.team_bonus)   /*onClickListener.onClick(holder.topView)*/ }
+        /*
+        holder.cardView.setOnClickListener { cont.itemClick()   /*onClickListener.onClick(holder.topView)*/ }
         holder.name.text = item.name
         holder.expansion.text = item.expansion
         holder.armyType.text = item.army_type
@@ -47,6 +49,7 @@ class CivilizationAdapter(
 
         holder.button1.setOnClickListener { cont.buttonOneClick() }
         holder.button2.setOnClickListener { cont.buttonTwoClick() }
+        */
 
     }
 

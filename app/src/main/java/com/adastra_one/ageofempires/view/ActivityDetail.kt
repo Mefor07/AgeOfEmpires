@@ -3,36 +3,37 @@ package com.adastra_one.ageofempires.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.adastra_one.ageofempires.adapters.CivilizationAdapter
+import com.adastra_one.ageofempires.adapters.CivilizationBonusAdapter
 import com.adastra_one.ageofempires.databinding.ActivityDetailBinding
-import com.adastra_one.ageofempires.databinding.ActivityMainBinding
-import com.adastra_one.ageofempires.interfaces.ItemClickListener
-import com.adastra_one.ageofempires.interfaces.UniqueTechClickListener
-import com.adastra_one.ageofempires.interfaces.UniqueUniteClickListener
-import com.adastra_one.ageofempires.model.Civilization
-import com.adastra_one.ageofempires.viewmodel.CivilizationViewModel
+
 
 class ActivityDetail : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        val itemsList =  ArrayList<String>()
+        var itemsList =  ArrayList<String>()
         lateinit var cvBonusRecyclerView: RecyclerView
-        lateinit var civilizationAdapter: CivilizationAdapter
+        lateinit var civilizationBonusAdapter: CivilizationBonusAdapter
         super.onCreate(savedInstanceState)
 
         val binding = ActivityDetailBinding.inflate(layoutInflater)
+        cvBonusRecyclerView = binding.cvBonusRecyclerview
 
         binding.name.text = intent.getStringExtra("NAME_EXTRA");
         binding.expansion.text = intent.getStringExtra("EXPANSION_EXTRA")
         binding.armyType.text = intent.getStringExtra("ARMY_TYPE_EXTRA")
         binding.teamBonus.text = intent.getStringExtra("TEAM_BONUS_EXTRA")
 
-            itemsList.clear()
+        itemsList = intent.getStringArrayListExtra("BONUS_ARRAY") as ArrayList<String>
+        val layoutManager = LinearLayoutManager(ActivityDetail@this)
+        cvBonusRecyclerView.layoutManager = layoutManager
+        civilizationBonusAdapter = CivilizationBonusAdapter(itemsList, this)
+        cvBonusRecyclerView.adapter = civilizationBonusAdapter
+        civilizationBonusAdapter.notifyDataSetChanged()
+
             /*
             for (item in civilizations.civilizations) {
                 itemsList.add(item)

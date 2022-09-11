@@ -6,33 +6,30 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.adastra_one.ageofempires.view.MainActivity
 import com.adastra_one.ageofempires.R
+import com.adastra_one.ageofempires.databinding.CivilizationBonusItemBinding
 import com.adastra_one.ageofempires.databinding.CivilizationListRowBinding
 import com.adastra_one.ageofempires.model.Civilization
 import com.adastra_one.ageofempires.view.ActivityDetail
 
 class CivilizationBonusAdapter(
-    var itemsList:List<String>,
+    var itemsList:ArrayList<String>,
     context: ActivityDetail
 ): RecyclerView.Adapter<CivilizationBonusAdapter.MyViewHolder>()
 {
     var cont = context
     //var onClickListener = onClickListener
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val binding = CivilizationListRowBinding.bind(view)
+        val binding = CivilizationBonusItemBinding.bind(view)
 
-        var cardView = binding.cardView
+
         var name = binding.name
-        var expansion = binding.expansion
-        var armyType = binding.armyType
-        var teamBonus = binding.teamBonus
-        var button1 = binding.button1
-        var button2 = binding.button2
+
 
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.civilization_list_row, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.civilization_bonus_item, parent, false)
         return MyViewHolder(itemView)
     }
 
@@ -50,6 +47,8 @@ class CivilizationBonusAdapter(
         holder.button1.setOnClickListener { cont.buttonOneClick() }
         holder.button2.setOnClickListener { cont.buttonTwoClick() }
         */
+
+        holder.name.text = item
 
     }
 

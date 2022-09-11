@@ -6,7 +6,7 @@ data class Civilizations(
 
 data class Civilization(
     val army_type: String,
-    val civilization_bonus: List<String>,
+    val civilization_bonus: ArrayList<String>,
     val expansion: String,
     val id: Int,
     val name: String,

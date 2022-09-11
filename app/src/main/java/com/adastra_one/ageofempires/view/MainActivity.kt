@@ -50,13 +50,14 @@ class MainActivity : AppCompatActivity(), ItemClickListener, UniqueUniteClickLis
         setContentView(binding.root)
     }
 
-    override fun itemClick(name: String, expansion: String, armyType: String, teamBonus: String) {
+    override fun itemClick(name: String, expansion: String, armyType: String, teamBonus: String, cvBonus: ArrayList<String>) {
         Toast.makeText(this, "Item Clicked", Toast.LENGTH_LONG).show()
         val intent = Intent(this, ActivityDetail::class.java)
         intent.putExtra("NAME_EXTRA", name)
         intent.putExtra("EXPANSION_EXTRA", expansion)
         intent.putExtra("ARMY_TYPE_EXTRA", armyType)
         intent.putExtra("TEAM_BONUS_EXTRA", teamBonus)
+        intent.putStringArrayListExtra("BONUS_ARRAY", cvBonus)
         startActivity(intent)
     }
 

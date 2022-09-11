@@ -3,6 +3,7 @@ package app.medrx.MedrxApp.retrofit
 
 import com.adastra_one.ageofempires.model.Civilization
 import com.adastra_one.ageofempires.model.Civilizations
+import com.adastra_one.ageofempires.model.UnitModel
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -50,6 +51,13 @@ interface ApiInterface {
     )
     @GET("v1/civilizations")
     fun civilizations():Call<Civilizations>
+
+
+    @Headers(
+        "Accept: application/json",
+    )
+    @GET("v1/unit/jaguar_warrior")
+    fun uniqueUnit():Call<UnitModel>
 
 
     /*

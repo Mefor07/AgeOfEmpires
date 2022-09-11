@@ -1,5 +1,6 @@
-package com.adastra_one.ageofempires
+package com.adastra_one.ageofempires.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,10 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.adastra_one.ageofempires.adapters.CivilizationAdapter
 import com.adastra_one.ageofempires.databinding.ActivityMainBinding
 import com.adastra_one.ageofempires.interfaces.ItemClickListener
+import com.adastra_one.ageofempires.interfaces.UniqueTechClickListener
+import com.adastra_one.ageofempires.interfaces.UniqueUniteClickListener
 import com.adastra_one.ageofempires.model.Civilization
 import com.adastra_one.ageofempires.viewmodel.CivilizationViewModel
 
-class MainActivity : AppCompatActivity(), ItemClickListener {
+class MainActivity : AppCompatActivity(), ItemClickListener, UniqueUniteClickListener, UniqueTechClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var civilizationViewModel: CivilizationViewModel
         val itemsList =  ArrayList<Civilization>()
@@ -50,4 +53,16 @@ class MainActivity : AppCompatActivity(), ItemClickListener {
     override fun itemClick() {
         Toast.makeText(this, "Item Clicked", Toast.LENGTH_LONG).show()
     }
+
+    override fun buttonOneClick() {
+        Toast.makeText(this, "Unique Unite Button Click", Toast.LENGTH_LONG).show()
+        val intent = Intent(this, ActivityDetailUnit::class.java)
+        startActivity(intent)
+    }
+
+    override fun buttonTwoClick() {
+        Toast.makeText(this, "Unique Tech Button Click", Toast.LENGTH_LONG).show()
+    }
+
+
 }

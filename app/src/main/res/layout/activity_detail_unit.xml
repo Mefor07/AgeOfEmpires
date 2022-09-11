@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight= "1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize = "16sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id = "@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="#000"
+                android:textSize = "12sp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight= "1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight= "1"
+                android:text="Description"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize = "16sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id = "@+id/description"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textColor="#000"
+                android:textSize = "12sp"
+                android:maxLines ="2"
+                android:layout_gravity = "center"
+                android:layout_weight= "1"
+                android:ellipsize="marquee"
+                android:gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight= "1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expansion"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize = "16sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id = "@+id/expansion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expansion"
+                android:textColor="#000"
+                android:textSize = "12sp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight= "1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize = "16sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id = "@+id/age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:textColor="#000"
+                android:textSize = "12sp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id = "@+id/cost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cost"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_margin = "10dp"
+        android:textSize = "20sp" />
+
+    <TextView
+        android:id = "@+id/food"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Food : 60"
+        android:textColor="#000"
+        android:textSize = "12sp"
+        android:layout_margin = "10dp"/>
+
+    <TextView
+        android:id = "@+id/gold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gold : 30"
+        android:textColor="#000"
+        android:textSize = "12sp"
+        android:layout_margin = "10dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:background ="#c4c4c4"
+        android:layout_marginHorizontal="10dp"
+        android:layout_height="3dp"/>
+    <TextView
+        android:id = "@+id/build_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="build_time: 17"
+        android:textColor="#000"
+        android:textSize = "12sp"
+        android:layout_margin = "10dp"/>
+
+    <TextView
+        android:id = "@+id/reload_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="reload_time: 17"
+        android:textColor="#000"
+        android:textSize = "12sp"
+        android:layout_margin = "10dp"/>
+
+    <TextView
+        android:id = "@+id/movement_rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="movement_rate: 1.0"
+        android:textColor="#000"
+        android:textSize = "12sp"
+        android:layout_margin = "10dp"/>
+
+    <TextView
+        android:id = "@+id/line_of_sight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="line_of_sight: 3"
+        android:textColor="#000"
+        android:textSize = "12sp"
+        android:layout_margin = "10dp"/>
+
+    <TextView
+        android:id = "@+id/hit_points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hit_points: 50"
+        android:textColor="#000"
+        android:textSize = "12sp"
+        android:layout_margin = "10dp"/>
+
+    <TextView
+        android:id = "@+id/attack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="attack: 10"
+        android:textColor="#000"
+        android:textSize = "12sp"
+        android:layout_margin = "10dp"/>
+
+    <TextView
+        android:id = "@+id/armour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="armor: 1/0"
+        android:textColor="#000"
+        android:textSize = "12sp"
+        android:layout_margin = "10dp"/>
+
+
+
+
+</LinearLayout>

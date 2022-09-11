@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.adastra_one.ageofempires.MainActivity
+import com.adastra_one.ageofempires.view.MainActivity
 import com.adastra_one.ageofempires.R
 import com.adastra_one.ageofempires.databinding.CivilizationListRowBinding
 import com.adastra_one.ageofempires.model.Civilization
@@ -24,6 +24,8 @@ class CivilizationAdapter(
         var expansion = binding.expansion
         var armyType = binding.armyType
         var teamBonus = binding.teamBonus
+        var button1 = binding.button1
+        var button2 = binding.button2
 
 
     }
@@ -42,6 +44,9 @@ class CivilizationAdapter(
         holder.expansion.text = item.expansion
         holder.armyType.text = item.army_type
         holder.teamBonus.text = item.team_bonus
+
+        holder.button1.setOnClickListener { cont.buttonOneClick() }
+        holder.button2.setOnClickListener { cont.buttonTwoClick() }
 
     }
 
